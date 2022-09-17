@@ -3,8 +3,8 @@ const fs = require('fs');
 const https = require('https');
 
 var tldCache = {};
-if (fs.existsSync('./tlds.json')) {
-    tldCache = JSON.parse(fs.readFileSync('./tlds.json'));
+if (fs.existsSync(__dirname + '/tlds.json')) {
+    tldCache = JSON.parse(fs.readFileSync(__dirname + '/tlds.json'));
 }
 
 exports.getWhoisServer = async (tld) => {
@@ -79,14 +79,14 @@ exports.getRawWhois = async (domain, server, port) => {
 }
 
 exports.getWhois = async function (domain, config = {}) {
-    if (config.hasOwnProperty('tld')) {
+    if (config.hasOwnProperty('tld') && config.tld !== null && config.tld !== '') {
         tld = config.tld;
     }
     else {
         tld = domain.split('.').pop();
     }
     let whoisServers = [];
-    let whoisServer = config.hasOwnProperty('whoisServer') ? config.whoisServer : await this.getWhoisServer(tld);
+    let whoisServer = (config.hasOwnProperty('whoisServer') && config.whoisServer !== null && config.whoisServer !== '') ? config.whoisServer : await this.getWhoisServer(tld);
     if (whoisServer === null) {
         return null;
     }
