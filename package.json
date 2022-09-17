@@ -1,0 +1,25 @@
+{
+  "name": "simple-whois",
+  "version": "1.0.0",
+  "description": "Simple and powerful whois client to check status of any TLD.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bgokcol/simple-whois.git"
+  },
+  "keywords": [
+    "whois",
+    "simple whois",
+    "whois client",
+    "domain whois"
+  ],
+  "author": "bgokcol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bgokcol/simple-whois/issues"
+  },
+  "homepage": "https://github.com/bgokcol/simple-whois#readme"
+}
